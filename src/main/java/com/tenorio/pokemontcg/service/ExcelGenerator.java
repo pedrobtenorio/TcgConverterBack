@@ -30,11 +30,9 @@ public class ExcelGenerator {
         row.createCell(1).setCellValue("Name");
         row.createCell(2).setCellValue("Number");
         row.createCell(3).setCellValue("Printed Total");
-        row.createCell(4).setCellValue("Supertype");
-        row.createCell(5).setCellValue("Level");
-        row.createCell(6).setCellValue("Artist");
-        row.createCell(7).setCellValue("Rarity");
-        row.createCell(8).setCellValue("Flavor Text");
+        row.createCell(4).setCellValue("Artist");
+        row.createCell(5).setCellValue("Rarity");
+        row.createCell(6).setCellValue("Flavor Text");
 
         for (Card card : cards) {
             row = sheet.createRow(rowNum++);
@@ -42,11 +40,9 @@ public class ExcelGenerator {
             row.createCell(1).setCellValue(card.getName());
             row.createCell(2).setCellValue(card.getNumber());
             row.createCell(3).setCellValue(card.getSet().getPrintedTotal());
-            row.createCell(4).setCellValue(card.getSupertype());
-            row.createCell(5).setCellValue(card.getLevel());
-            row.createCell(7).setCellValue(card.getArtist());
-            row.createCell(8).setCellValue(card.getRarity());
-            row.createCell(9).setCellValue(card.getFlavorText());
+            row.createCell(4).setCellValue(card.getArtist());
+            row.createCell(5).setCellValue(card.getRarity());
+            row.createCell(6).setCellValue(card.getFlavorText());
         }
 
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
