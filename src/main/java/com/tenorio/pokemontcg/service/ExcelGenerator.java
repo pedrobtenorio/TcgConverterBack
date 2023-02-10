@@ -26,6 +26,7 @@ public class ExcelGenerator {
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet sheet = workbook.createSheet("Cards");
 
+
         int rowNum = 0;
         Row row = sheet.createRow(rowNum++);
         row.createCell(0).setCellValue("ID");
@@ -35,6 +36,7 @@ public class ExcelGenerator {
         row.createCell(4).setCellValue("Artist");
         row.createCell(5).setCellValue("Rarity");
         row.createCell(6).setCellValue("Flavor Text");
+
 
 
         for (Card card : cards) {
@@ -47,6 +49,13 @@ public class ExcelGenerator {
             row.createCell(5).setCellValue(card.getRarity());
             row.createCell(6).setCellValue(card.getFlavorText());
         }
+        sheet.autoSizeColumn(0);
+        sheet.autoSizeColumn(1);
+        sheet.autoSizeColumn(2);
+        sheet.autoSizeColumn(3);
+        sheet.autoSizeColumn(4);
+        sheet.autoSizeColumn(5);
+        sheet.autoSizeColumn(6);
 
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         try {
