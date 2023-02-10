@@ -28,33 +28,13 @@ public class ExcelGenerator {
 
         int rowNum = 0;
         Row row = sheet.createRow(rowNum++);
-
-        XSSFFont font = workbook.createFont();
-        font.setBold(true);
-
-        XSSFCellStyle style = workbook.createCellStyle();
-        style.setFont(font);
-
         row.createCell(0).setCellValue("ID");
-        row.createCell(0).setCellStyle(style);
-
         row.createCell(1).setCellValue("Name");
-        row.createCell(1).setCellStyle(style);
-
         row.createCell(2).setCellValue("Number");
-        row.createCell(2).setCellStyle(style);
-
         row.createCell(3).setCellValue("Printed Total");
-        row.createCell(3).setCellStyle(style);
-
         row.createCell(4).setCellValue("Artist");
-        row.createCell(4).setCellStyle(style);
-
         row.createCell(5).setCellValue("Rarity");
-        row.createCell(5).setCellStyle(style);
-
         row.createCell(6).setCellValue("Flavor Text");
-        row.createCell(6).setCellStyle(style);
 
 
         for (Card card : cards) {
