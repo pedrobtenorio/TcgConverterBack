@@ -18,5 +18,6 @@ public class Card {
     private String rarity;
     private String flavorText;
     private set set;
+    private images images;
 
 }

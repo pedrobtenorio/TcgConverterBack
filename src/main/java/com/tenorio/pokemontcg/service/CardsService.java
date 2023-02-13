@@ -28,7 +28,7 @@ public class CardsService {
         this.excelGenerator = excelGenerator;
     }
 
-    public ResponseEntity<InputStreamResource> getCardsWithQuery(String query) {
+    public List<Card> getCardsWithQuery(String query) {
         String url = "https://api.pokemontcg.io/v2/cards?q=name:" + query;
 
         HttpHeaders headers = new HttpHeaders();
@@ -42,11 +42,12 @@ public class CardsService {
             throw new IllegalStateException("Could not retrieve cards from API. Response body was null.");
         }
         List<Card> cards = cardResponseWrapper.getData();
-        if(query.contains("*")) {
-            query = query.replace("*", "");
-        }
-        String name = String.format("%s.xlsx", query);
-        return this.excelGenerator.exportToExcel(cards, name);
+        return cards;
+//        if(query.contains("*")) {
+//            query = query.replace("*", "");
+//        }
+//        String name = String.format("%s.xlsx", query);
+//        return this.excelGenerator.exportToExcel(cards, name);
     }
 
 

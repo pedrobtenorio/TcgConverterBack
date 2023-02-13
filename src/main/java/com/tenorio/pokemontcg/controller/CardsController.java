@@ -19,8 +19,8 @@ public class CardsController {
         this.cardsService = cardsService;
     }
 
-    @GetMapping(value = "/cards", produces = "application/octet-stream")
-    public ResponseEntity<InputStreamResource> getCards(@RequestParam("query") String query) {
+    @GetMapping(value = "/cards")
+    public List<Card> getCards(@RequestParam("query") String query) {
         return cardsService.getCardsWithQuery(query);
     }
 }
